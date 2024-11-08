@@ -1,5 +1,46 @@
 @extends('layouts.app')
 
+@section('title')
+    Sign In
+@endsection
+
+@section('content')
+    <div class="container login-container">
+        <div class="col-12">
+            <div class="p-4">
+                <div class="login-top">
+                    <button class="btn-close" type="button" onclick="window.location.href='{{ route('main') }}';"
+                        aria-label="Close"></button>
+                </div>
+                <h3 class="login-title">تسجيل الدخول</h3>
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
+
+                    <div class="mb-3">
+                        <input type="email" class="form-control" name="email" id="email"
+                            placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <div class="mb-3 input-group">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="رمز المرور"
+                            required>
+                        <span class="input-group-text" id="basic-addon2">
+                            <i class="fa fa-eye" id="togglePassword"></i>
+                        </span>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-custom">تأكيد</button>
+                    </div>
+                    <div class="text-center mt-3" class="text-decoration-none">
+                        <a href="{{ route('register') }}" class="text-decoration-none">لا يوجد لديك حساب؟ تسجيل الدخول</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection
+
+{{-- @extends('layouts.app')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -70,4 +111,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}

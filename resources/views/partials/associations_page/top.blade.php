@@ -5,6 +5,4 @@
         <h5>إبحث</h5>
         <p class="text-secondary">إبحث عن طلبك في المناطق الآمنة</p>
     </div>
-
-    <i class="fa fa-times fa-2x text-secondary"></i>
 </div>

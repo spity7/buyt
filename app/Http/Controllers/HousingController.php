@@ -8,12 +8,29 @@ use App\Http\Requests\UpdateHousingRequest;
 
 class HousingController extends Controller
 {
+    public function pending_housings()
+    {
+        $housings = Housing::where('pending', '1')->get();
+
+        return view('buyt.housings.pending_housings', compact('housings'));
+    }
+
+    public function accept_pending(Housing $housing)
+    {
+        $housing->update(['pending' => 0]);
+        $housing->save();
+
+        return redirect()->route('pending_housings')->with('success', 'Housing accepted successfully');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $housings = auth()->user()->housings()->get();
+
+        return view('buyt.housings.index', compact('housings'));
     }
 
     /**
@@ -21,7 +38,7 @@ class HousingController extends Controller
      */
     public function create()
     {
-        //
+        return view('buyt.housings.create');
     }
 
     /**
@@ -29,7 +46,12 @@ class HousingController extends Controller
      */
     public function store(StoreHousingRequest $request)
     {
-        //
+        $housingData = $request->validated();
+        $housingData['user_id'] = auth()->id();
+
+        Housing::create($housingData);
+
+        return redirect()->route('housings.create')->with('success', 'تمت إضافة السكن بنجاح');
     }
 
     /**
@@ -61,6 +83,9 @@ class HousingController extends Controller
      */
     public function destroy(Housing $housing)
     {
-        //
+        $housing->delete();
+        $housing->save();
+
+        return redirect()->route('users.index')->with('success', 'Users deleted successfully');
     }
 }

@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="donation-container">
-        @include('partials.donation.form')
-        @include('partials.donation.options')
+        @include('partials.donations.create.form')
+        @include('partials.donations.create.options')
     </div>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Donation;
 use App\Http\Requests\StoreDonationRequest;
 use App\Http\Requests\UpdateDonationRequest;
+use App\Models\Association;
 
 class DonationController extends Controller
 {
@@ -21,7 +22,9 @@ class DonationController extends Controller
      */
     public function create()
     {
-        //
+        $associations = Association::all();
+
+        return view('buyt.donations.create', compact('associations'));
     }
 
     /**
@@ -29,7 +32,9 @@ class DonationController extends Controller
      */
     public function store(StoreDonationRequest $request)
     {
-        //
+        Donation::create($request->validated());
+
+        return redirect()->route('donations.create')->with('success', 'Donation added successfully');
     }
 
     /**

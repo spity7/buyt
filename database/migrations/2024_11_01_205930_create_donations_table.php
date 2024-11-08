@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('type');
-            $table->text('details');
+            $table->text('details')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

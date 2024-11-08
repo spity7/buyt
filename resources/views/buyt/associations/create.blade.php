@@ -1,9 +1,9 @@
 @extends('app')
 
 @section('title')
-    إضافة سكن
+    Create Association
 @endsection
 
 @section('content')
-    @include('partials.add.form')
+    @include('partials.associations.create')
 @endsection

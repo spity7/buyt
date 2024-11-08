@@ -1,0 +1,69 @@
+body {
+    font-family: "Cairo", sans-serif;
+    font-weight: 600;
+}
+
+.form-control {
+    text-align: right;
+}
+
+/* Register */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+}
+
+.register-top {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.register-top button {
+    margin-top: 10px;
+}
+
+.register-title {
+    margin-top: 60px;
+    font-size: calc(1.3rem+0.6vw);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+
+.register-container form .btn-custom {
+    background-color: #00bcd4;
+    color: white;
+    margin-top: 15px;
+}
+
+/* Login */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-top {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-top button {
+    margin-top: 10px;
+}
+
+.login-title {
+    margin-top: 130px;
+    margin-bottom: 1.5rem;
+}
+
+.login-container form .input-group-text {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.login-container form .btn-custom {
+    background-color: #00bcd4;
+    color: white;
+}

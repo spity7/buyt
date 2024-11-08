@@ -14,18 +14,18 @@ return new class extends Migration
         Schema::create('housings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('type');
             $table->text('type_description')->nullable();
             $table->integer('nb_rooms');
             $table->string('area');
             $table->string('governorate');
             $table->string('city');
-            $table->string('service_type');
             $table->string('furnishing_status');
-            $table->string('price');
-            $table->boolean('whatsapp_check');
+            $table->string('service_type');
+            $table->string('price')->nullable();
             $table->text('description')->nullable();
+            $table->boolean('pending')->default('1');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();

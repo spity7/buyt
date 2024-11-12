@@ -13,45 +13,9 @@ class AssociationController extends Controller
 
     public function associations_page()
     {
-        $governorate = null;
+        $associations = Association::paginate(8);
 
-        if (in_array(request('house-governorates'), Housing::GOVERNORATES) && request('house-governorates') === 'بيروت') {
-            $governorate = 'بيروت';
-        } else if (in_array(request('house-governorates'), Housing::GOVERNORATES) && request('house-governorates') === 'جبل لبنان') {
-            $governorate = 'جبل لبنان';
-        } else if (in_array(request('house-governorates'), Housing::GOVERNORATES) && request('house-governorates') === 'الجنوب') {
-            $governorate = 'الجنوب';
-        } else if (in_array(request('house-governorates'), Housing::GOVERNORATES) && request('house-governorates') === 'النبطية') {
-            $governorate = 'النبطية';
-        } else if (in_array(request('house-governorates'), Housing::GOVERNORATES) && request('house-governorates') === 'البقاع') {
-            $governorate = 'البقاع';
-        } else if (in_array(request('house-governorates'), Housing::GOVERNORATES) && request('house-governorates') === 'الشمال') {
-            $governorate = 'الشما';
-        }
-
-        $houses = Housing::when($governorate, function ($query) {
-            $query->withTrashed();
-        });
-
-        $associations = Association::all();
-
-        $housings = Housing::where('type', '!=', 'مركز')->get();
-        $housings1 = Housing::where('type', '!=', 'مركز')->where('governorate', 'بيروت')->get();
-        $housings2 = Housing::where('type', '!=', 'مركز')->where('governorate', 'جبل لبنان')->get();
-        $housings3 = Housing::where('type', '!=', 'مركز')->where('governorate', 'الجنوب')->get();
-        $housings4 = Housing::where('type', '!=', 'مركز')->where('governorate', 'النبطية')->get();
-        $housings5 = Housing::where('type', '!=', 'مركز')->where('governorate', 'البقاع')->get();
-        $housings6 = Housing::where('type', '!=', 'مركز')->where('governorate', 'الشمال')->get();
-
-        $centers = Housing::where('type', 'مركز')->get();
-        $centers1 = Housing::where('type', 'مركز')->where('governorate', 'بيروت')->get();
-        $centers2 = Housing::where('type', 'مركز')->where('governorate', 'جبل لبنان')->get();
-        $centers3 = Housing::where('type', 'مركز')->where('governorate', 'الجنوب')->get();
-        $centers4 = Housing::where('type', 'مركز')->where('governorate', 'النبطية')->get();
-        $centers5 = Housing::where('type', 'مركز')->where('governorate', 'البقاع')->get();
-        $centers6 = Housing::where('type', 'مركز')->where('governorate', 'الشمال')->get();
-
-        return view('buyt.associations_page', compact('associations', 'housings', 'governorate', 'housings1', 'housings2', 'housings3', 'housings4', 'housings5', 'housings6', 'centers', 'centers1', 'centers2', 'centers3', 'centers4', 'centers5', 'centers6'));
+        return view('buyt.associations_page.associations', compact('associations'));
     }
 
     /**
@@ -59,7 +23,7 @@ class AssociationController extends Controller
      */
     public function index()
     {
-        $associations = Association::all();
+        $associations = Association::paginate(8);
 
         return view('buyt.associations.index', compact('associations'));
     }

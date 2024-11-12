@@ -23,17 +23,16 @@ class StoreHousingRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:20',
+            'phone' => 'required|integer',
             'type' => 'required|string|max:50',
-            'type_description' => 'nullable|string|max:500',
             'nb_rooms' => 'required|integer|min:1',
-            'area' => 'required|string',
+            'area' => 'required|integer',
             'governorate' => 'required|string|max:100',
             'city' => 'required|string|max:100',
             'service_type' => 'required',
             'furnishing_status' => 'required',
             'price' => 'nullable|string',
-            'description' => 'nullable|string|max:1000',
+            'description' => 'required|string|max:1000',
         ];
     }
 }

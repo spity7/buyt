@@ -12,7 +12,7 @@
 <hr>
 
 <div class="container">
-    <div class="assoc-housing__bottom">
+    <div class="assoc-housing__bottom-pending">
         @foreach ($housings as $housing)
             <div class="assoc-housing__option">
                 <div class="assoc-housing__option-top">
@@ -49,6 +49,11 @@
                             @csrf
                             @method('PUT')
                             <input type="submit" class="btn assoc__call pending-housings_accept" value="accept">
+                        </form>
+                        <form action="{{ route('reject_pending', $housing) }}" method="POST" style="display: inline">
+                            @csrf
+                            @method('PUT')
+                            <input type="submit" class="btn assoc__call-reject pending-housings_accept" value="reject">
                         </form>
                         <a href="" class="assoc__more-details" data-bs-toggle="modal"
                             data-bs-target="#exampleModal{{ $housing->id }}">...المزيد</a>
@@ -123,6 +128,8 @@
                 </div>
             </div>
         @endforeach
-        <button class="btn assoc-housing__bottom-button">اظهار المزيد</button>
+        <div class="py-2">
+            {{ $housings->links() }}
+        </div>
     </div>
 </div>

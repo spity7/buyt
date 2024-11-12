@@ -22,7 +22,7 @@ class DonationController extends Controller
      */
     public function create()
     {
-        $associations = Association::all();
+        $associations = Association::paginate(6);
 
         return view('buyt.donations.create', compact('associations'));
     }

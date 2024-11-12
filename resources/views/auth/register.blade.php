@@ -55,8 +55,11 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-4">
-                            <select name="phone_code" class="form-select" title="Country Code">
+                            <select name="phone_code"
+                                class="form-select {{ $errors->has('phone_code') ? 'is-invalid' : '' }}"
+                                title="Country Code" value="{{ old('phone_code') }}"required>
                                 <!-- Add more country codes as needed -->
+                                <option value="">code</option>
                                 <option value="+1">United States +1</option>
                                 <option value="+7">Russia +7</option>
                                 <option value="+20">Egypt +20</option>
@@ -274,10 +277,17 @@
                                 <option value="+1868">Trinidad and Tobago +1868</option>
                                 <option value="+1876">Jamaica +1876</option>
                             </select>
+                            @if ($errors->has('phone_code'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('phone_code') }}
+                                </div>
+                            @endif
+                            <span class="help-block"> </span>
                         </div>
                         <div class="col-8">
-                            <input name="phone" type="tel" class="form-control" id="phone"
-                                value="{{ old('phone') }}" placeholder="رقم الهاتف">
+                            <input name="phone" type="number"
+                                class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" id="phone"
+                                value="{{ old('phone') }}" placeholder="رقم الهاتف" required>
                             @if ($errors->has('phone'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('phone') }}
@@ -298,10 +308,10 @@
                         <span class="help-block"> </span>
                     </div>
                     <div class="mb-3 input-group">
-                        <input name="password" type="password" minlength="8" class="form-control"
+                        <input name="password" id="password" type="password" minlength="8" class="form-control"
                             placeholder="رمز المرور" required>
-                        <span class="input-group-text">
-                            <i class="fa fa-eye"></i>
+                        <span class="input-group-text" onclick="togglePasswordVisibility('password', 'togglePassword')">
+                            <i class="fa fa-eye" id="togglePassword"></i>
                         </span>
                         @if ($errors->has('password'))
                             <div class="invalid-feedback">
@@ -311,10 +321,11 @@
                         <span class="help-block"> </span>
                     </div>
                     <div class="mb-3 input-group">
-                        <input name="password_confirmation" type="password" minlength="8" class="form-control"
-                            placeholder="إعادة إدخال رمز المرور" required>
-                        <span class="input-group-text">
-                            <i class="fa fa-eye"></i>
+                        <input name="password_confirmation" id="password_confirmation" type="password" minlength="8"
+                            class="form-control" placeholder="إعادة إدخال رمز المرور" required>
+                        <span class="input-group-text"
+                            onclick="togglePasswordVisibility('password_confirmation', 'togglePasswordConfirmation')">
+                            <i class="fa fa-eye" id="togglePasswordConfirmation"></i>
                         </span>
                         @if ($errors->has('password_confirmation'))
                             <div class="invalid-feedback">
@@ -333,4 +344,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function togglePasswordVisibility(inputId, iconId) {
+            const passwordField = document.getElementById(inputId);
+            const toggleIcon = document.getElementById(iconId);
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+
 @endsection

@@ -35,7 +35,7 @@
         @if (!$housings->count())
             <h2 class="text-danger fw-bold">لا يوجد سكن لهذا الحساب</h2>
         @else
-            <h2 class="text-primary fw-bold">:السكنات</h2>
+            <h2 class="text-primary fw-bold">:السكن</h2>
             @foreach ($housings as $housing)
                 <div class="assoc-housing__option">
                     <div class="assoc-housing__option-top">

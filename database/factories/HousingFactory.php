@@ -21,17 +21,18 @@ class HousingFactory extends Factory
         return [
             'name' => $this->faker->name,
             'phone' => $this->faker->phoneNumber,
+            'phone_code' => $this->faker->countryCode,
             'type' => $this->faker->randomElement(['بيت', 'شقة', 'شاليه', 'مركز']),
-            'type_description' => $this->faker->sentence,
+            'title' => $this->faker->sentence,
             'nb_rooms' => $this->faker->numberBetween(1, 10),
             'area' => $this->faker->word,
             'governorate' => $this->faker->randomElement(Housing::GOVERNORATES),
             'city' => $this->faker->city,
-            'service_type' => $this->faker->randomElement(['مجاني', 'مدفوع']),
+            'service_type' => $this->faker->randomElement(['مجانا', 'للايجار']),
             'furnishing_status' => $this->faker->randomElement(['مفروش', 'غير مفروش']),
             'price' => $this->faker->randomFloat(2, 100, 1000), // Example: random price between 100 and 10000
             'description' => $this->faker->paragraph,
-            'user_id' => 2,
+            'user_id' => 1,
         ];
     }
 }

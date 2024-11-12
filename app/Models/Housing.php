@@ -12,8 +12,9 @@ class Housing extends Model
     protected $fillable = [
         'name',
         'phone',
+        'phone_code',
         'type',
-        'type_description',
+        'title',
         'nb_rooms',
         'area',
         'governorate',
@@ -21,7 +22,6 @@ class Housing extends Model
         'service_type',
         'furnishing_status',
         'price',
-        'whatsapp_check',
         'description',
         'pending',
         'user_id'
@@ -31,6 +31,7 @@ class Housing extends Model
     public const GOVERNORATES = ['بيروت', 'جبل لبنان', 'الجنوب', 'النبطية', 'البقاع', 'الشمال'];
     public const SERVICE_TYPE = ['غير مدفوع', 'مدفوع'];
     public const FURNISHING_STATUS = ['مفروش', 'غير مفروش'];
+    public const PENDING = ['pending', 'accepted', 'rejected'];
 
     public function user()
     {

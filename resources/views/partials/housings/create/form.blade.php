@@ -39,7 +39,7 @@
             <span class="help-block"> </span>
         </div>
         <div class="form-group">
-            <input type="text" name="phone" id="phone"
+            <input type="number" name="phone" id="phone"
                 class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" placeholder="رقم الهاتف"
                 value="{{ old('phone') }}" required>
             @if ($errors->has('phone'))
@@ -49,11 +49,11 @@
             @endif
             <span class="help-block"> </span>
         </div>
-        <div class="form-group">
+        <div class="form-group w-50 ms-auto">
             <select name="type" id="type"
-                class="form-select add-form__select {{ $errors->has('type') ? 'is-invalid' : '' }}" required
-                value="{{ old('type') }}">
-                <option value="">نوع السكن</option>
+                class="form-select add-form__select {{ $errors->has('type') ? 'is-invalid' : '' }}"
+                value="{{ old('type') }}" required>
+                <option value="" selected="">نوع السكن</option>
                 @foreach (App\Models\Housing::TYPE as $type)
                     <option value="{{ $type }}" {{ old('type') == $type ? 'selected' : '' }}>
                         {{ ucfirst($type) }}</option>
@@ -70,17 +70,6 @@
             <span class="help-block"> </span>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control {{ $errors->has('type_description') ? 'is-invalid' : '' }}"
-                name="type_description" id="type_description" value="{{ old('type_description') }}"
-                placeholder="تفصيل نوع السكن">
-            @if ($errors->has('type_description'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('type_description') }}
-                </div>
-            @endif
-            <span class="help-block"> </span>
-        </div>
-        <div class="form-group">
             <input type="number" class="form-control {{ $errors->has('nb_rooms') ? 'is-invalid' : '' }}"
                 value="{{ old('nb_rooms') }}" name="nb_rooms" id="nb_rooms" placeholder="عدد الغرف" required>
             @if ($errors->has('nb_rooms'))
@@ -91,7 +80,7 @@
             <span class="help-block"> </span>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area"
+            <input type="number" class="form-control {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area"
                 id="area" value="{{ old('area') }}" placeholder="المساحة" required>
             @if ($errors->has('area'))
                 <div class="invalid-feedback">
@@ -100,7 +89,7 @@
             @endif
             <span class="help-block"> </span>
         </div>
-        <div class="form-group">
+        <div class="form-group w-50 ms-auto">
             <select name="governorate" id="governorate"
                 class="form-select add-form__select {{ $errors->has('governorate') ? 'is-invalid' : '' }}" required>
                 <option value="">المحافظة</option>
@@ -127,13 +116,14 @@
             @endif
             <span class="help-block"> </span>
         </div>
-        <div class="form-group">
+        <div class="form-group w-75 ms-auto">
             <select id="furnishing_status" name="furnishing_status"
                 class="form-select add-form__select {{ $errors->has('furnishing_status') ? 'is-invalid' : '' }}"
                 value="{{ old('furnishing_status') }}" required>
-                <option value="">(مفروش / غير مفروش)</option>
-                <option value="مفروش">مفروش</option>
-                <option value="غير مفروش">غير مفروش</option>
+                <option value="" selected="">(مفروش / غير مفروش)</option>
+                <option value="مفروش" {{ old('furnishing_status') == 'مفروش' ? 'selected' : '' }}>مفروش</option>
+                <option value="غير مفروش" {{ old('furnishing_status') == 'غير مفروش' ? 'selected' : '' }}>غير مفروش
+                </option>
             </select>
             @if ($errors->has('furnishing_status'))
                 <div class="invalid-feedback">
@@ -142,13 +132,13 @@
             @endif
             <span class="help-block"> </span>
         </div>
-        <div class="form-group">
+        <div class="form-group w-75 ms-auto">
             <select id="service_type" name="service_type"
                 class="form-select add-form__select {{ $errors->has('service_type') ? 'is-invalid' : '' }}"
                 value="{{ old('service_type') }}" required onchange="togglePriceRequirement()">
-                <option value="">(مجاني / مدفوع)</option>
-                <option value="مجاني">مجاني</option>
-                <option value="مدفوع">مدفوع</option>
+                <option value="" selected="">(مجاني / مدفوع)</option>
+                <option value="مجانا" {{ old('service_type') == 'مجانا' ? 'selected' : '' }}>مجاني</option>
+                <option value="للايجار" {{ old('service_type') == 'للايجار' ? 'selected' : '' }}>مدفوع</option>
             </select>
             @if ($errors->has('service_type'))
                 <div class="invalid-feedback">
@@ -157,10 +147,13 @@
             @endif
             <span class="help-block"> </span>
         </div>
-        <div class="form-group" id="price-group" style="display: none;">
-            <input type="text" id="price" name="price"
-                class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" value="{{ old('price') }}"
-                placeholder="السعر">
+        <div class="form-group w-75 ms-auto" id="price-group" style="display: none;">
+            <div class="housing-price__div">
+                <span class="input-group-text">$</span>
+                <input type="number" id="price" name="price"
+                    class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" value="{{ old('price') }}"
+                    placeholder="السعر">
+            </div>
             @if ($errors->has('price'))
                 <div class="invalid-feedback">
                     {{ $errors->first('price') }}
@@ -171,7 +164,7 @@
         <div class="form-group">
             <textarea id="description" name="description"
                 class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" value="{{ old('description') }}"
-                rows="3" placeholder="وصف السكن"></textarea>
+                rows="3" placeholder="وصف السكن" required></textarea>
             @if ($errors->has('description'))
                 <div class="invalid-feedback">
                     {{ $errors->first('description') }}
@@ -190,7 +183,7 @@
         const priceInput = document.getElementById('price');
         const priceGroup = document.getElementById('price-group');
 
-        if (serviceType === 'مدفوع') { // 'مدفوع'
+        if (serviceType === 'للايجار') { // 'مدفوع'
             priceGroup.style.display = 'block';
             priceInput.setAttribute('required', 'required');
         } else { // 'مجاني' or unselected

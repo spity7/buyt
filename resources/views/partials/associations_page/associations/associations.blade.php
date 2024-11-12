@@ -1,7 +1,5 @@
 <div class="donation-options__top">
-    <hr>
-    <span>او تواصل مباشرة مع جمعيات</span>
-    <hr>
+    <span></span>
 </div>
 
 <div class="donation-options__bottom">
@@ -33,7 +31,5 @@
             </div>
         </div>
     @endforeach
-    <div class="pagination-links">
-        {{ $associations->links() }}
-    </div>
+    {{ $associations->links() }}
 </div>

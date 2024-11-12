@@ -47,5 +47,6 @@
                 </div>
             </div>
         @endforeach
+        {{ $associations->links() }}
     </div>
 </div>

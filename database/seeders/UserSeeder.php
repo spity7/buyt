@@ -17,6 +17,8 @@ class UserSeeder extends Seeder
         $admin = User::create([
             'first_name' => 'admin',
             'last_name' => 'i am',
+            'phone' => '123456789',
+            'phone_code' => '+961',
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -28,6 +30,8 @@ class UserSeeder extends Seeder
         $user = User::create([
             'first_name' => 'user',
             'last_name' => 'will be',
+            'phone' => '12345654321',
+            'phone_code' => '+961',
             'email' => 'user@user.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password

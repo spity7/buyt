@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="assoc-housing__option-middle">
                                     <div>
-                                        {{ $housing->city }}
+                                        {{ $housing->city->name }}
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@
                                                         </div>
                                                         <div class="assoc-housing__option-middle">
                                                             <div>
-                                                                {{ $housing->city }}
+                                                                {{ $housing->city->name }}
                                                                 <i class="fa fa-map-marker"></i>
                                                             </div>
                                                         </div>
@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="assoc-housing__option-middle">
                                     <div>
-                                        {{ $pending_housing->city }}
+                                        {{ $pending_housing->city->name }}
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                 </div>
@@ -236,7 +236,7 @@
                                                         </div>
                                                         <div class="assoc-housing__option-middle">
                                                             <div>
-                                                                {{ $pending_housing->city }}
+                                                                {{ $pending_housing->city->name }}
                                                                 <i class="fa fa-map-marker"></i>
                                                             </div>
                                                         </div>
@@ -263,7 +263,7 @@
                             </div>
                         @endforeach
                         <div class="py-2">
-                            {{ $housings->links() }}
+                            {{ $pending_housings->links() }}
                         </div>
                     </div>
                 @endif
@@ -294,7 +294,7 @@
                                 </div>
                                 <div class="assoc-housing__option-middle">
                                     <div>
-                                        {{ $accepted_housing->city }}
+                                        {{ $accepted_housing->city->name }}
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                 </div>
@@ -356,7 +356,7 @@
                                                         </div>
                                                         <div class="assoc-housing__option-middle">
                                                             <div>
-                                                                {{ $accepted_housing->city }}
+                                                                {{ $accepted_housing->city->name }}
                                                                 <i class="fa fa-map-marker"></i>
                                                             </div>
                                                         </div>
@@ -383,7 +383,7 @@
                             </div>
                         @endforeach
                         <div class="py-2">
-                            {{ $housings->links() }}
+                            {{ $accepted_housings->links() }}
                         </div>
                     </div>
                 @endif
@@ -414,7 +414,7 @@
                                 </div>
                                 <div class="assoc-housing__option-middle">
                                     <div>
-                                        {{ $rejected_housing->city }}
+                                        {{ $rejected_housing->city->name }}
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                 </div>
@@ -476,7 +476,7 @@
                                                         </div>
                                                         <div class="assoc-housing__option-middle">
                                                             <div>
-                                                                {{ $rejected_housing->city }}
+                                                                {{ $rejected_housing->city->name }}
                                                                 <i class="fa fa-map-marker"></i>
                                                             </div>
                                                         </div>
@@ -503,10 +503,11 @@
                             </div>
                         @endforeach
                         <div class="py-2">
-                            {{ $housings->links() }}
+                            {{ $rejected_housings->links() }}
                         </div>
                     </div>
                 @endif
             </div>
+        </div>
     @endif
 </div>

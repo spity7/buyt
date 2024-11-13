@@ -51,7 +51,7 @@
                         </div>
                         <div class="text-danger assoc-price">
                             @if ($housing->price)
-                                <span class="text-danger">{{ $housing->price }}</span>
+                                <span class="text-danger">{{ $housing->price }}$</span>
                             @else
                                 <span class="text-secondary">مجانا</span>
                             @endif
@@ -59,7 +59,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $housing->city }}
+                            {{ $housing->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                                                 </div>
                                                 <div class="text-danger assoc-price">
                                                     @if ($housing->price)
-                                                        <span class="text-danger">{{ $housing->price }}</span>
+                                                        <span class="text-danger">{{ $housing->price }}$</span>
                                                     @else
                                                         <span class="text-secondary">مجانا</span>
                                                     @endif
@@ -115,7 +115,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $housing->city }}
+                                                    {{ $housing->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>

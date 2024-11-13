@@ -27,12 +27,12 @@ class HousingFactory extends Factory
             'nb_rooms' => $this->faker->numberBetween(1, 10),
             'area' => $this->faker->word,
             'governorate' => $this->faker->randomElement(Housing::GOVERNORATES),
-            'city' => $this->faker->city,
             'service_type' => $this->faker->randomElement(['مجانا', 'للايجار']),
             'furnishing_status' => $this->faker->randomElement(['مفروش', 'غير مفروش']),
             'price' => $this->faker->randomFloat(2, 100, 1000), // Example: random price between 100 and 10000
             'description' => $this->faker->paragraph,
             'user_id' => 1,
+            'city_id' => 11001
         ];
     }
 }

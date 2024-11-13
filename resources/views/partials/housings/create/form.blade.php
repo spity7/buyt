@@ -105,10 +105,12 @@
             @endif
             <span class="help-block"> </span>
         </div>
-        <div class="form-group">
-            <input type="text" name="city" id="city"
-                class="form-control {{ $errors->has('city') ? 'is-invalid' : '' }}" value="{{ old('city') }}"
-                placeholder="البلدة" required>
+        <div class="form-group w-50 ms-auto">
+            <select id="city" name="city"
+                class="form-select add-form__select {{ $errors->has('city') ? 'is-invalid' : '' }}"
+                value="{{ old('city') }}" required>
+                <option value="" selected="">البلدة</option>
+            </select>
             @if ($errors->has('city'))
                 <div class="invalid-feedback">
                     {{ $errors->first('city') }}
@@ -196,3 +198,96 @@
     // Initialize on page load in case of old form data
     document.addEventListener('DOMContentLoaded', togglePriceRequirement);
 </script>
+
+<script>
+    $(document).ready(function() {
+        // The cities grouped by governorate
+        var citiesByGovernorate = {
+            'بيروت': @json($beriut_cities),
+            'البقاع': @json($beqaa_cities),
+            'جبل لبنان': @json($mount_cities),
+            'النبطية': @json($nabatieh_cities),
+            'الشمال': @json($shmel_cities),
+            'الجنوب': @json($jnoub_cities)
+        };
+
+        // Initialize Select2 for the city select input
+        $('#city').select2({
+            placeholder: "اختر المدينة",
+            allowClear: true
+        });
+
+        // Handle the governorate change event
+        $('#governorate').change(function() {
+            var selectedGovernorate = $(this).val();
+
+            // Clear the current city options
+            $('#city').empty();
+            $('#city').append('<option value="" selected="">البلدة</option>'); // Default option
+
+            if (selectedGovernorate) {
+                // Get the cities for the selected governorate
+                var cities = citiesByGovernorate[selectedGovernorate];
+
+                // Append the cities to the city select input
+                if (cities) {
+                    cities.forEach(function(city) {
+                        $('#city').append('<option value="' + city.name + '">' + city.nameAr +
+                            '</option>');
+                    });
+                }
+
+                // Refresh the Select2 input to show the updated list of cities
+                $('#city').trigger('change');
+            }
+
+            // Reinitialize Select2 for search functionality
+            $('#city').select2({
+                placeholder: "اختر المدينة",
+                allowClear: true
+            });
+        });
+
+        // Trigger the change event to populate cities if a governorate is selected
+        $('#governorate').trigger('change');
+    });
+</script>
+
+{{-- <script>
+    // Hide all city options when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        var cityOptions = document.querySelectorAll('.city-option');
+        cityOptions.forEach(function(option) {
+            option.style.display = 'none';
+        });
+    });
+
+    // Show relevant cities when a governorate is selected
+    document.getElementById('governorate').addEventListener('change', function() {
+        var selectedGovernorate = this.value;
+        var cityOptions = document.querySelectorAll('.city-option');
+
+        // Show only cities that match the selected governorate
+        cityOptions.forEach(function(option) {
+            if (selectedGovernorate && option.getAttribute('data-governorate') ===
+                selectedGovernorate) {
+                option.style.display = 'block';
+            } else {
+                option.style.display = 'none';
+            }
+        });
+
+        // Reset city selection when changing the governorate
+        document.getElementById('city').value = '';
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Initialize Select2 on the city select input
+        $('#city').select2({
+            placeholder: "اختر المدينة",
+            allowClear: true // Optional: Adds a clear button to reset the selection
+        });
+    });
+</script> --}}

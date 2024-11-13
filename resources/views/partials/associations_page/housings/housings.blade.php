@@ -38,7 +38,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $housing->city }}
+                            {{ $housing->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $housing->city }}
+                                                    {{ $housing->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -111,7 +111,7 @@
                                                         <i class="fa fa-whatsapp"></i>
                                                     </a>
                                                     <a href="#"
-                                                        onclick="shareHousing('{{ $housing->name }}', '{{ $housing->city }}', '{{ $housing->description }}')"
+                                                        onclick="shareHousing('{{ $housing->name }}', '{{ $housing->city->name }}', '{{ $housing->description }}')"
                                                         class="btn assoc__call">
                                                         <i class="fa fa-share-alt"></i>
                                                     </a>
@@ -175,7 +175,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $housing1->city }}
+                            {{ $housing1->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -231,7 +231,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $housing1->city }}
+                                                    {{ $housing1->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -309,7 +309,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $housing2->city }}
+                            {{ $housing2->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -365,7 +365,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $housing2->city }}
+                                                    {{ $housing2->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -443,7 +443,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $housing3->city }}
+                            {{ $housing3->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -499,7 +499,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $housing3->city }}
+                                                    {{ $housing3->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -577,7 +577,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $housing4->city }}
+                            {{ $housing4->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -633,7 +633,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $housing4->city }}
+                                                    {{ $housing4->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -711,7 +711,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $housing5->city }}
+                            {{ $housing5->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -767,7 +767,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $housing5->city }}
+                                                    {{ $housing5->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -845,7 +845,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $housing6->city }}
+                            {{ $housing6->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -901,7 +901,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $housing6->city }}
+                                                    {{ $housing6->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>

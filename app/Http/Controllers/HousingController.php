@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Housing;
 use App\Http\Requests\StoreHousingRequest;
 use App\Http\Requests\UpdateHousingRequest;
+use App\Models\City;
 
 class HousingController extends Controller
 {
@@ -129,7 +130,14 @@ class HousingController extends Controller
      */
     public function create()
     {
-        return view('buyt.housings.create');
+        $beriut_cities = City::where('governorateId', '04')->get();
+        $beqaa_cities = City::where('governorateId', '08')->get();
+        $mount_cities = City::where('governorateId', '05')->get();
+        $nabatieh_cities = City::where('governorateId', '07')->get();
+        $shmel_cities = City::where('governorateId', '09')->get();
+        $jnoub_cities = City::where('governorateId', '06')->get();
+
+        return view('buyt.housings.create', compact('beriut_cities', 'beqaa_cities', 'mount_cities', 'nabatieh_cities', 'shmel_cities', 'jnoub_cities'));
     }
 
     /**
@@ -139,6 +147,11 @@ class HousingController extends Controller
     {
         $housingData = $request->validated();
         $housingData['user_id'] = auth()->id();
+        $cityName = $request->input('city');
+        $cityId = City::where('name', $cityName)->first();
+        if ($cityId) {
+            $housingData['city_id'] = $cityId->id;
+        }
 
         // Generate the title using 'type', 'furnishing_status', and 'service_type'
         $housingData['title'] = ($request->input('type') ?? '') . ' ' .

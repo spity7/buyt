@@ -28,7 +28,6 @@ class StoreHousingRequest extends FormRequest
             'nb_rooms' => 'required|integer|min:1',
             'area' => 'required|integer',
             'governorate' => 'required|string|max:100',
-            'city' => 'required|string|max:100',
             'service_type' => 'required',
             'furnishing_status' => 'required',
             'price' => 'nullable|string',

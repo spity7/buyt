@@ -18,13 +18,13 @@ class Housing extends Model
         'nb_rooms',
         'area',
         'governorate',
-        'city',
         'service_type',
         'furnishing_status',
         'price',
         'description',
         'pending',
-        'user_id'
+        'user_id',
+        'city_id'
     ];
 
     public const TYPE = ['بيت', 'شقة', 'شاليه'];
@@ -36,5 +36,10 @@ class Housing extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
     }
 }

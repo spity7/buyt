@@ -21,15 +21,13 @@ return new class extends Migration
             $table->integer('nb_rooms');
             $table->string('area');
             $table->string('governorate');
-            $table->string('city');
-            $table->decimal('latitude')->nullable();
-            $table->decimal('longitude')->nullable();
             $table->string('furnishing_status');
             $table->string('service_type');
             $table->integer('price')->nullable();
             $table->text('description');
             $table->string('pending')->default('pending');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('city_id')->constrained('cities');
             $table->timestamps();
             $table->softDeletes();
         });

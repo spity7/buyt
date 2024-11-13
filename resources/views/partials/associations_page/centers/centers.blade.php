@@ -38,7 +38,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $center->city }}
+                            {{ $center->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $center->city }}
+                                                    {{ $center->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -170,7 +170,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $center1->city }}
+                            {{ $center1->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $center1->city }}
+                                                    {{ $center1->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -304,7 +304,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $center2->city }}
+                            {{ $center2->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -360,7 +360,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $center2->city }}
+                                                    {{ $center2->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -438,7 +438,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $center3->city }}
+                            {{ $center3->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -494,7 +494,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $center3->city }}
+                                                    {{ $center3->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -572,7 +572,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $center4->city }}
+                            {{ $center4->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -628,7 +628,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $center4->city }}
+                                                    {{ $center4->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -706,7 +706,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $center5->city }}
+                            {{ $center5->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -762,7 +762,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $center5->city }}
+                                                    {{ $center5->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>
@@ -840,7 +840,7 @@
                     </div>
                     <div class="assoc-housing__option-middle">
                         <div>
-                            {{ $center6->city }}
+                            {{ $center6->city->name }}
                             <i class="fa fa-map-marker"></i>
                         </div>
                     </div>
@@ -896,7 +896,7 @@
                                             </div>
                                             <div class="assoc-housing__option-middle">
                                                 <div>
-                                                    {{ $center6->city }}
+                                                    {{ $center6->city->name }}
                                                     <i class="fa fa-map-marker"></i>
                                                 </div>
                                             </div>

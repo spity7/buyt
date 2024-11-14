@@ -213,7 +213,7 @@
 
         // Initialize Select2 for the city select input
         $('#city').select2({
-            placeholder: "اختر المدينة",
+            placeholder: "اختر البلدة",
             allowClear: true
         });
 
@@ -243,7 +243,7 @@
 
             // Reinitialize Select2 for search functionality
             $('#city').select2({
-                placeholder: "اختر المدينة",
+                placeholder: "اختر البلدة",
                 allowClear: true
             });
         });

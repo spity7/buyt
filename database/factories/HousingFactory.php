@@ -32,7 +32,7 @@ class HousingFactory extends Factory
             'price' => $this->faker->randomFloat(2, 100, 1000), // Example: random price between 100 and 10000
             'description' => $this->faker->paragraph,
             'user_id' => 1,
-            'city_id' => 11001
+            'city_id' => $this->faker->numberBetween(21116, 21173)
         ];
     }
 }
